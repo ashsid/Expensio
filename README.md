@@ -12,8 +12,8 @@ Analytics provided to help you understand your expenses and visualise your savin
 
 Concepts involved :
 
-REST API's 
-Ajax requests
-Predictive fetch
-Server Sent Event 
+REST API's ,
+Ajax requests,
+Predictive fetch,
+Server Sent Events, 
 Periodic refresh
