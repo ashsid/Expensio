@@ -1,0 +1,23 @@
+SELECT UserID, CategoryID, SUM(Amount) FROM `Expenses` WHERE UserID=3 GROUP BY CategoryID;
+
+
+SELECT UserID, CategoryID, Category, SUM(Amount) from (`Expenses` NATURAL JOIN `ExpenseCategory`) WHERE UserID=3 GROUP by CategoryID
+
+SELECT e.Category, COALESCE(Amount,0) as Amount from `ExpenseCategory` as e LEFT OUTER JOIN (SELECT Category, SUM(Amount) as Amount from (`Expenses` NATURAL JOIN `ExpenseCategory`) WHERE UserID=3 GROUP by CategoryID) as c on e.Category = c.Category
+
+
+
+dataPoints: [
+			{ y: data["result_got"][0].Amount, label: data["result_got"][0].Category },
+			{ y: data["result_got"][1].Amount, label: data["result_got"][1].Category },
+			{ y: data["result_got"][2].Amount, label: data["result_got"][2].Category },
+			{ y: data["result_got"][3].Amount, label: data["result_got"][3].Category },
+			{ y: data["result_got"][4].Amount, label: data["result_got"][4].Category },
+			{ y: data["result_got"][5].Amount, label: data["result_got"][5].Category },
+			{ y: data["result_got"][6].Amount, label: data["result_got"][6].Category },
+			{ y: data["result_got"][7].Amount, label: data["result_got"][7].Category }
+		]
+
+
+
+SELECT UserID, MonthID, Verified FROM `UserDetails` WHERE UserID = 3
